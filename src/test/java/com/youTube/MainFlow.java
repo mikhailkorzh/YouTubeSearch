@@ -2,14 +2,6 @@ package com.youTube;
 
 import org.junit.Assert;
 import org.junit.Test;
-//import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.concurrent.TimeUnit;
 
 public class MainFlow extends WebDriverSettings {
 
@@ -30,7 +22,7 @@ public class MainFlow extends WebDriverSettings {
         String mainPageHeader = objSearch.getMainPageTitle();
         Assert.assertTrue(mainPageHeader.contains("YouTube"));
         objSearch.setSearchCriteria(randomValue1 + randomValue2);
-        objSearch.selectItemFromSearchResults(2);
+        objSearch.selectItemFromSearchResults(1);
         objSearch.openVideo();
         objSearch.subscribeToChanel();
         String loginBeforeFollow = objSearch.loginBeforeFollow().toUpperCase();
