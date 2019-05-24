@@ -3,7 +3,6 @@ package com.youTube;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +14,7 @@ public class YouTubeSearchPage {
 
     By SEARCH_INPUT_LOCATOR = By.xpath("//input[@id='search']");
     By SEARCH_LIST_LOCATOR = By.xpath("//div[@class = 'gstl_50 sbdd_a' and not(contains(@style, 'display:none'))]");
-    By SEARCH_LIST_ITEM_LOCATOR = By.xpath("//div[@class = 'gstl_50 sbdd_a' and not(contains(@style, 'display:none'))]//ul[@class='sbsb_b' and @role='listbox']");
+    By SEARCH_LIST_ITEM_LOCATOR = By.xpath("//div[@class = 'gstl_50 sbdd_a' and not(contains(@style, 'display:none'))]//ul[@class='sbsb_b' and @role='listbox']//li");
     By FOURTH_VIDEO_LOCATOR = By.xpath("//div[@id = 'contents' and ./ytd-video-renderer]/ytd-video-renderer[4]");
     By SUBSCRIBE_BUTTON_LOCATOR = By.xpath("//div[@id='subscribe-button' and @class='style-scope ytd-video-secondary-info-renderer']");
     By LOGIN_BEFORE_FOLLOW_BUTTON_LOCATOR = By.xpath("//div[@id='contentWrapper']//paper-button[@id='button' and @aria-label='Войти']");
@@ -43,9 +42,10 @@ public class YouTubeSearchPage {
 
     public void selectItemFromSearchResults(int number) {
         //driver.switchTo().defaultContent();
+        //driver.switchTo().frame("gstl_50 sbdd_a");
         WebElement searchResultsList = new WebDriverWait(driver, 10)
-               .until(ExpectedConditions.visibilityOfElementLocated(SEARCH_LIST_LOCATOR));
- 
+                .until(ExpectedConditions.visibilityOfElementLocated(SEARCH_LIST_LOCATOR));
+
         WebElement secondSearchResult = searchResultsList.findElements(SEARCH_LIST_ITEM_LOCATOR).get(number);
         secondSearchResult.click();
     }
