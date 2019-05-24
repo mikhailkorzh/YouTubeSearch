@@ -33,7 +33,7 @@ public class MainFlow extends WebDriverSettings {
         String mainPageHeader = objSearch.getMainPageTitle();
         Assert.assertTrue(mainPageHeader.contains("YouTube"));
         objSearch.setSearchCriteria(randomValue1 + randomValue2);
-        objSearch.selectItemFromSearchResults(0);
+        objSearch.selectItemFromSearchResults(2);
         objSearch.openVideo();
         objSearch.subscribeToChanel();
         String loginBeforeFollow = objSearch.loginBeforeFollow().toUpperCase();
