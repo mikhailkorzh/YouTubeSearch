@@ -41,8 +41,6 @@ public class YouTubeSearchPage {
 
 
     public void selectItemFromSearchResults(int number) {
-        //driver.switchTo().defaultContent();
-        //driver.switchTo().frame("gstl_50 sbdd_a");
         WebElement searchResultsList = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(SEARCH_LIST_LOCATOR));
 
